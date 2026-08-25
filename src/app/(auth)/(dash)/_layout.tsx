@@ -6,7 +6,7 @@ export default function RootLayout() {
     <Tabs
        >
        <Tabs.Screen 
-          name="dashboard"
+          name="index"
           options={
             {
               title:"Home",
