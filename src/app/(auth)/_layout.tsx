@@ -1,17 +1,19 @@
 import { Redirect, Stack } from "expo-router";
 
-const isLoggedIn = false;
+const isLoggedIn = true;
 
 export default function AuthLayout() {
-  if ( !isLoggedIn){
-    return <Redirect href={"/(auth)/login"} />
+  if (!isLoggedIn) {
+    return <Redirect href={"/login"} />;
   }
-  return <Stack>
-    <Stack.Screen 
-      name="(dash)"
-      options={{
-        headerShown: false,
-      }}
-    />
-  </Stack>;
+  return (
+    <Stack>
+      <Stack.Screen
+        name="(dash)"
+        options={{
+          headerShown: false,
+        }}
+      />
+    </Stack>
+  );
 }
