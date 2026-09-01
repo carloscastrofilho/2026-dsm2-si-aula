@@ -1,23 +1,23 @@
 import { Stack } from "expo-router";
-import React from "react";
-import {StatusBar } from "expo-status-bar"
+import { StatusBar } from "react-native";
+import AuthProvider from "./utils/authContext";
 
-
-export default function RootLayout(){
-    return (
-        
-    <React.Fragment>
-        <StatusBar style="auto"/>
-        <Stack>
-            <Stack.Screen 
-                name="(auth)"
-                options={{
-                    headerShown: false,
-                }}
-            />
-        </Stack>
-    </React.Fragment>
-    
-
-    )
+export default function RootLayout() {
+  return (
+    <AuthProvider>
+      <StatusBar barStyle={"default"} />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen
+          name="(auth)"
+          options={{
+            headerShown: true,
+          }}
+        />
+      </Stack>
+    </AuthProvider>
+  );
 }

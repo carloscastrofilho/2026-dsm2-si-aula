@@ -1,26 +1,28 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Link, useRouter } from "expo-router";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Alert,
   Image,
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import estilo from "./logincss";
+import { AuthContext } from "./utils/authContext";
 
 export default function Login() {
   // const [variavel, setVariavel] = useState<tipagem>();
   const [login, setLogin] = useState<string>();
   const [password, setPassword] = useState<string>();
   const router = useRouter();
+  const auth = useContext(AuthContext);
 
   function onClicAcessar(text: string) {
-    console.log(text, login, password);
     if (login == "teste" && password == "123") {
-      router.navigate("/(auth)/(dash)/graficos");
+      auth.logIn(login, password);
+      router.navigate("/");
     } else {
       Alert.alert("Senha ou Usuário Invalido!!!");
     }
