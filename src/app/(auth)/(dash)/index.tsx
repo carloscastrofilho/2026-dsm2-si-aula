@@ -6,6 +6,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 function Dashboard() {
   const auth = useContext(AuthContext);
+
   return (
     <View>
       <Text> Dashboard - {auth.user?.email}</Text>
